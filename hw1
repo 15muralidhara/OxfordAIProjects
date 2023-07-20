@@ -1,0 +1,11 @@
+""""Using the CIFAR10 data provided below, create an alogrithm that takes in a gray scale image and coverts it to a color image.
+
+Note for this problem we will define the grayscale image as the average of the three color channels."""
+
+from torchvision.datasets import CIFAR10
+
+train_data = CIFAR10(root='./datasets', train=True, download=True, transform=transforms.ToTensor())
+test_data = CIFAR10(root='./datasets', train=True, download=False, transform=transforms.ToTensor())
+
+train_loader = DataLoader(train_data,batch_size=64, shuffle=True, pin_memory=True)
+test_loader = DataLoader(test_data,batch_size=64, shuffle=False, pin_memory=True)
